@@ -1,0 +1,21 @@
+{
+  "name": "skills",
+  "owner": {
+    "name": "Demilade01"
+  },
+  "metadata": {
+    "description": "An open-source collection of portable skills for building real things with AI coding agents.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "frontend-unslop",
+      "description": "Design and build distinctive, non-generic frontends by planning before coding (PRD, section copy, design tokens, layout) so the result does not look AI-generated.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/frontend-unslop"
+      ]
+    }
+  ]
+}

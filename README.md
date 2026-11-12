@@ -46,7 +46,44 @@ Install directly with the built-in skills manager:
 gemini skills install https://github.com/Demilade01/skills.git --path skills/frontend-unslop
 ```
 
-### 3. Manual Install (Native `SKILL.md` Directories)
+### 3. Claude Code
+
+Install directly inside a Claude Code session using the built-in plugin marketplace:
+
+```bash
+/plugin marketplace add Demilade01/skills
+/plugin install frontend-unslop@skills
+```
+
+Or from your terminal via `npx skills`:
+
+```bash
+# Project scope
+npx skills add Demilade01/skills --skill frontend-unslop -a claude-code
+
+# Global scope (~/.claude/skills/)
+npx skills add Demilade01/skills --skill frontend-unslop -a claude-code -g
+```
+
+### 4. OpenAI Codex
+
+Install directly inside a Codex session using the built-in `$skill-installer`:
+
+```text
+$skill-installer install https://github.com/Demilade01/skills/tree/main/skills/frontend-unslop
+```
+
+Or from your terminal via `npx skills`:
+
+```bash
+# Project scope (.agents/skills/)
+npx skills add Demilade01/skills --skill frontend-unslop -a codex
+
+# Global scope (~/.codex/skills/)
+npx skills add Demilade01/skills --skill frontend-unslop -a codex -g
+```
+
+### 5. Manual Install (Native `SKILL.md` Directories)
 
 Clone this repository and copy any folder from `skills/<skill-name>` into your agent's project or global skills directory:
 
@@ -76,7 +113,7 @@ git clone https://github.com/Demilade01/skills.git
 
 ---
 
-### 4. Agents Without Native `SKILL.md` Support (Rules, Flags & Web Builders)
+### 6. Agents Without Native `SKILL.md` Support (Rules, Flags & Web Builders)
 
 Every `SKILL.md` is plain Markdown. If your tool does not use a `skills/` folder yet, load it as a rule file, read-only context file, or project instruction:
 
@@ -114,7 +151,7 @@ Use the frontend-unslop skill. Idea: [your idea]. Start at the PRD.
 Use the frontend-unslop skill in app mode. Inspect our backend routes and schema first, then start at the PRD and app-map.
 ```
 
-**Slash command (Claude Code, Cursor, OpenCode, etc.):**
+**Slash / skill command (Claude Code, Codex, Cursor, OpenCode, etc.):**
 ```text
 /frontend-unslop Idea: [your idea]. Start at the PRD.
 ```
@@ -142,7 +179,7 @@ Contributions are welcome! To keep skills portable across every AI coding agent:
    - `description` is how agents decide when to auto-activate the skill—be explicit about trigger scenarios.
 3. **Optional supporting files**: If your skill needs templates, scripts, or extra docs, place them inside `skills/<skill-name>/references/`, `scripts/`, or `assets/` and link to them using relative paths from `SKILL.md`.
 4. **Stay agent-agnostic**: Avoid hardcoding one editor's proprietary tool names if a general instruction works across all agents.
-5. **Update the README**: Add a row to the [Skills](#skills) table above and a credit in [Credits](#credits) if adapted from existing work.
+5. **Register the skill**: Add a row to the [Skills](#skills) table above, an entry in [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json), and a credit in [Credits](#credits) if adapted from existing work.
 
 ---
 
